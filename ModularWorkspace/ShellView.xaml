@@ -1,0 +1,19 @@
+<Window x:Class="ModularWorkspace.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Topmost="True"
+        WindowStyle="None"
+        xmlns:cal="http://www.caliburnproject.org"
+        Height="60"
+        cal:Message.Attach="[Event MouseLeftButtonDown] = [Action DragWindow($source,$eventArgs)]"
+        >
+
+    <Grid Background="White">
+        <TextBlock Text="Hello Caliburn Micro!"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"/>
+        <Button HorizontalAlignment="Left" Content="Add Window" Name="OpenNewWindow" />
+        <Button HorizontalAlignment="Right" Content="Close" Name="CloseButton" />
+    </Grid>
+
+</Window>

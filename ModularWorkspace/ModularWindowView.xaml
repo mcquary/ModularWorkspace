@@ -1,0 +1,34 @@
+﻿<Window x:Class="ModularWorkspace.ModularWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ModularWindowView"
+        WindowStyle="None"
+        xmlns:cal="http://www.caliburnproject.org"
+        Topmost="{Binding IsAlwaysOnTop, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+        Height="{Binding Height, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+        Width="{Binding Width, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+        AllowsTransparency="True"
+        cal:Message.Attach="[Event MouseLeftButtonDown] = [Action DragWindow($source,$eventArgs)]; 
+        [Event Activated] = [Action IGotFocus]; 
+        [Event Deactivated] = [Action ILostFocus];
+        " 
+        >
+    <Window.Background>
+        <SolidColorBrush Opacity="{Binding Opacity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Color="White"/>
+    </Window.Background>
+    <Border BorderBrush="Blue" BorderThickness="3">
+    <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem>
+                        <CheckBox Name="IsAlwaysOnTop" Content="Is always on top" />
+                    </MenuItem>
+                </ContextMenu>
+            </Grid.ContextMenu>
+    </Grid>
+    </Border>
+</Window>
